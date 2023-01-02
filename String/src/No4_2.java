@@ -5,6 +5,7 @@ public class No4_2 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.println("입력 받을 자연수의 개수 입력");
+
         int n = sc.nextInt();
         ArrayList<String> result;
         ArrayList<String> input = new ArrayList<>();
