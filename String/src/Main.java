@@ -1,23 +1,24 @@
 import java.util.Scanner;
 
-class Main{
+public class Main {
 
-    //ASCII CODE
-    // 65 ~ 90  => 영대문자
-    // 97 ~ 122 => 영소문자
-    public String solution(String str){
-       String answer = "";
-       for(char x : str.toCharArray()){
-           if(x >= 65 && x < 90) answer += (char)(x + 32);
-           else answer += (char)(x-32);
-       }
-       return answer;
+    public static void main(String[] args) {
+        System.out.println("문자열 입력");
+        Scanner sc = new Scanner(System.in);
+        String input = sc.nextLine();
+        System.out.println(solution(input));
     }
 
-    public static void main(String[] args){
-        Main T = new Main();
-        Scanner kb = new Scanner(System.in);
-        String str = kb.next();
-        System.out.println(T.solution(str));
+    public static String solution(String input) {
+        String[] words = input.split(" "); //공백으로 구분
+        int max = 0;
+        int index = 0;
+        for (int i = 0; i < words.length; i++) {
+            if (words[i].length() > max) { // 단어가 더 길면 max가 바뀜
+                max = words[i].length();
+                index = i;
+            }
+        }
+        return words[index];
     }
 }
