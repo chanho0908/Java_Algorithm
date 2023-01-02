@@ -63,7 +63,7 @@ public class No1 {
     }
 }
 
-/*
+/* 
 public class No1 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
