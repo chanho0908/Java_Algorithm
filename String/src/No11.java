@@ -14,6 +14,8 @@ import java.util.Scanner;
     출력
     첫 줄에 압축된 문자열을 출력한다.
 
+    KKHSSSSSSSE
+    KSTTTSEEKFKKKDJJGG
  */
 public class No11 {
 
@@ -44,8 +46,7 @@ public class No11 {
                 if(cnt > 1) result += cnt;
                 cnt=1;
             }
-            //KKHSSSSSSSE
-            //KSTTTSEEKFKKKDJJGG
+
         }
         return result;
     }

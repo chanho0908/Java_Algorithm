@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 /*
@@ -14,12 +15,21 @@ import java.util.Scanner;
  */
 public class test {
     public static void main(String[] args) {
+        String input="#****###**#####**#####**##**";
+        input = input.replace("#", Integer.toBinaryString(1));
+        input = input.replace("*", Integer.toBinaryString(0));
+        ArrayList<String> code = new ArrayList<>();
 
-        char ch = Character.MIN_VALUE;
-        System.out.println(ch);
+        for(int i=0; i < input.length() - 1 ; i+=7){
+            code.add(input.substring(i, i+7));
+        }
+
+        for(String x : code){
+            x.replaceAll("#", Integer.toBinaryString(1));
+            x.replace("*", Integer.toBinaryString(0));
+            System.out.println(x);
+        }
+
 
     }
-
-
-
 }
