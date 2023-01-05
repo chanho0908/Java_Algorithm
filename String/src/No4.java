@@ -17,7 +17,6 @@ import java.util.Scanner;
     N개의 단어를 입력된 순서대로 한 줄에 하나씩 뒤집어서 출력합니다.
  */
 public class No4 {
-
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.println("입력 받을 자연수의 개수 입력");
