@@ -59,7 +59,6 @@ public class No12 {
         for(int i=0; i < input.length() - 1 ; i+=7){
              result += (char)(Integer.parseInt((str.substring(i, i+7)), 2));
         }
-
         return result;
     }
 }
