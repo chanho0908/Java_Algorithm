@@ -27,7 +27,10 @@ public class No3 {
         sc.nextLine();
         for(int i=0; i < n; i++){ playerA.add(sc.nextInt()); }
         for(int i=0; i < n; i++){ playerB.add(sc.nextInt()); }
-        System.out.println(solution(playerA, playerB, n));
+        for(String x: solution(playerA, playerB, n)){
+            System.out.println(x);
+        }
+
     }
 
     public static ArrayList<String> solution(ArrayList<Integer> playerA, ArrayList<Integer> playerB, int n) {
