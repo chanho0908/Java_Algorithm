@@ -29,9 +29,12 @@ public class Eratosthenes {
         int cnt=0;
         for(int i = 2; i <= n; i++) arr[i] = i; // 소수 배열 초기화
 
-        for(int i = 2; i <= n; i++){
+        for(int i=2; i <= n; i++){
             for(int j = i+i; j <= n; j+=i) arr[j] = 0;
-            if(arr[i] != 0) cnt++;
+            if(arr[i] != 0) {
+                cnt++;
+                System.out.println(arr[i]);
+            }
         }
         System.out.println(cnt);
     }
