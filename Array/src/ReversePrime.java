@@ -22,7 +22,7 @@ import java.util.Scanner;
     첫 줄에 뒤집은 소수를 출력합니다. 출력순서는 입력된 순서대로 출력합니다.
 
  */
-public class ReversePrimeNum {
+public class ReversePrime {
     public static void main(String [] args) {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
@@ -60,6 +60,7 @@ public class ReversePrimeNum {
             }
             if(isPrimeNumber(tmp)) rs.add(tmp);
         }
+
         return rs;
     }
     // 32 55 62 20 250 370 200 30 100
