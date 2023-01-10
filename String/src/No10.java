@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Scanner;
 
 /*
@@ -14,34 +16,63 @@ import java.util.Scanner;
  */
 public class No10 {
     public static void main(String[] args) {
-        System.out.println("문자열 입력");
         Scanner sc = new Scanner(System.in);
-        String input = sc.nextLine();
+        String s = sc.next();
+        char t = sc.next().charAt(0);
+        for (Integer x : solution(s,t)){
+            System.out.println(x);
+        }
+        System.out.println("#####################");
+        for (Integer x : Main(s,t)){
+            System.out.println(x);
+        }
+    }
 
-        System.out.println("찾을 문자 입력");
-        char s = sc.nextLine().charAt(0);
-        for (int x:solution(input, s)){
-            System.out.println(x + "");
+    public static int[] solution(String s, char t) {
+        int cnt1 = 0, cnt2=0;
+        int[] answer = new int[s.length()];
+        ArrayList<Integer> result = new ArrayList<>();
+
+        for (int i=0; i < s.length()-1; i++){
+            if(s.charAt(i) == t) cnt1 = 0;
+            else cnt1++;
+            answer[i] = cnt1;
         }
 
-    }
-    // 1 0 1 2 1 0 1 2 2 1 0
-    // t e a c h e r m o d e
-    // 1 0 1 2 3 0 1 2 3 4 0
-    public static int[] solution(String input, char s) {
-        String str = input.toLowerCase();
-        int[] answer = new int[input.length()];
-        int cnt=0;
+        for(int i = s.length()-1; i >= 0; i--){
+            if(s.charAt(i) == t) cnt2 = 0;
+            else cnt2++;
+            result.add(cnt2);
+        }
+        Collections.reverse(result);
 
-        for(int i=0; i < input.length(); i++){
-            if(str.charAt(i) == s){
-                cnt = 0;
-                answer[i] = cnt;
-            }else {
-                cnt++;
-                answer[i] = cnt;
+        for (int i=0; i < s.length() -1; i++){
+            if(answer[i] > result.get(i)){
+                answer[i] = result.get(i);
             }
         }
+
+        return answer;
+    }
+    //teachermode
+    // 답안
+    public static int[] Main(String s, char t) {
+        int cnt=0;
+        int[] answer = new int[s.length()];
+
+        for (int i=0; i < s.length()-1; i++){
+            if(s.charAt(i) == t) cnt = 0;
+            else cnt++;
+            answer[i] = cnt;
+        }
+
+        cnt = 0;
+        for(int i = s.length()-1; i >= 0; i--){
+            if(s.charAt(i) == t) cnt = 0;
+            else cnt++;
+            answer[i] = Math.min(answer[i], cnt);
+        }
+
         return answer;
     }
 }

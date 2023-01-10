@@ -26,6 +26,7 @@ public class No8 {
 
     public static String solution(String input) {
         String str = input.toLowerCase().replaceAll("[^a-z]","");
+        System.out.println(str);
         if(str.equals(new StringBuffer(str).reverse().toString()))
             return "Yes!!";
 

@@ -48,7 +48,7 @@ public class No12 {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
         sc.nextLine(); // nextInt시에 Enter가 입력되어 넘어가는 것 해결
-        String input = sc.nextLine();
+        String input = sc.next();
         System.out.println(solution(input, n));
     }
     //#****###**#####**#####**##**

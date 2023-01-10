@@ -23,6 +23,7 @@ public class No9 {
     }
 
     public static int solution(String input) {
+
         return Integer.parseInt(input.replaceAll("[^0-9]",""));
     }
 }
