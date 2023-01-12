@@ -15,7 +15,6 @@
     87 89 92 100 76
     4 3 2 1 5
  */
-import java.awt.image.AreaAveragingScaleFilter;
 import java.util.*;
 
 public class No8 {
@@ -27,24 +26,17 @@ public class No8 {
         for(int i=0; i<n; i++){
             input.add(sc.nextInt());
         }
-        for (int x : solution(input, n)){
-            System.out.println(x + " ");
-        }
+        solution(input, n);
     }
+    // 5
     // 87 89 92 100 76
-    // 4 3 2 1 5
-    public static ArrayList<Integer> solution(ArrayList<Integer> input, int n) {
-        ArrayList<Integer> result = new ArrayList<>();
-
-        int rank=1;
-        for (int x : input){
-            for(int j=0; j<n; j++){
-                if(x < input.get(j)) rank++;
+    public static void solution(ArrayList<Integer> arr, int n) {
+        for (int i=0; i < n; i++){
+            int rank = 1;
+            for (int j=0; j < n; j++){
+                if (arr.get(i) < arr.get(j)) rank++;
             }
-            result.add(rank);
-            rank = 1;
+            System.out.print(rank + " ");
         }
-
-        return result;
     }
 }
