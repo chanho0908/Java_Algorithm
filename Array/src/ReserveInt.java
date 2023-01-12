@@ -15,7 +15,7 @@ public class ReserveInt {
 
         while (n > 0){
             int digit = n % 10;
-            result = result * 10 + digit;
+            result = result * 10 + digit; // 10의 자릿수를 늘림
             n /= 10;
             //System.out.println("result : " + result);
         }
