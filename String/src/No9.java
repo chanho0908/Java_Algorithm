@@ -16,14 +16,12 @@ import java.util.Scanner;
 
 public class No9 {
     public static void main(String[] args) {
-        System.out.println("문자열 입력");
         Scanner sc = new Scanner(System.in);
         String input = sc.nextLine();
         System.out.println(solution(input));
     }
 
     public static int solution(String input) {
-
         return Integer.parseInt(input.replaceAll("[^0-9]",""));
     }
 }

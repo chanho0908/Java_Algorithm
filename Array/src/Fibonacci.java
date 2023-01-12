@@ -16,11 +16,11 @@ import java.util.Scanner;
 
 public class Fibonacci {
     public static void main(String[] args) {
-        System.out.println("숫자 입력");
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
 
-        System.out.println(solution(n));
+        for(int x : solution(n) ) System.out.print(x + " ");
+
         //System.out.println(fibonacci(n));
         //notUseFor(n);
     }

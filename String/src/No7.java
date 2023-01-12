@@ -22,23 +22,13 @@ import java.util.Scanner;
 public class No7 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        System.out.println("문자열 입력 ");
         String input = sc.next().toLowerCase();
         System.out.println(solution(input));
     }
 
     public static String solution(String str){
-        char[] c = str.toLowerCase().toCharArray();
-        String result = "";
-        int rt = c.length;
-        for (int i=0; i< rt/2; i++){
-            if(c[i] == c[rt-1]){
-                result = "yes";
-                rt--;
-            }
-            else result= "No";
-        }
-        return result;
+        if (!str.equalsIgnoreCase(new StringBuffer(str).reverse().toString())) return "NO";
+        return "YES";
     }
 }
 /*

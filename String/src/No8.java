@@ -18,7 +18,7 @@ import java.util.Scanner;
 public class No8 {
 
     public static void main(String[] args) {
-        System.out.println("문자열 입력");
+
         Scanner sc = new Scanner(System.in);
         String input = sc.nextLine();
         System.out.println(solution(input));
@@ -26,11 +26,10 @@ public class No8 {
 
     public static String solution(String input) {
         String str = input.toLowerCase().replaceAll("[^a-z]","");
-        System.out.println(str);
         if(str.equals(new StringBuffer(str).reverse().toString()))
-            return "Yes!!";
+            return "YES";
 
-        return "No...";
+        return "NO";
     }
 }
 

@@ -13,29 +13,28 @@ import java.util.Scanner;
     출력
     첫 줄에 소수의 개수를 출력합니다.
 
-    for(int j = i+i; j <= n; j+=i) arr[j] = 0;
-    => 소수의 배수를 걸러내는 과정
+    에라토스테네스 체
+    1. n + 1만큼의 배열을 생성하고 0으로 초기화
+      tip! 배열의 초기값으느 0이므로 0으로 초기화 하지 않아도 된다.
+
+    2. 반복문을 생성하여 2부터 n까지 반복할 때,
+       2부터 7까지의 배수를 모두 제거한다
 
  */
 public class Eratosthenes {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
-        solution(n);
+        System.out.println(solution(n));
     }
 
-    public static void solution(int n) {
+    public static int solution(int n) {
         int[] arr = new int[n+1];
-        int cnt=0;
-        for(int i = 2; i <= n; i++) arr[i] = i; // 소수 배열 초기화
-
-        for(int i=2; i <= n; i++){
-            for(int j = i+i; j <= n; j+=i) arr[j] = 0;
-            if(arr[i] != 0) {
-                cnt++;
-                System.out.println(arr[i]);
-            }
+        int answer = 0;
+        for (int i=2; i <= n; i++){
+            if (arr[i] == 0) answer++;
+            for (int j=i; j<=n; j += i) arr[j] = 1;
         }
-        System.out.println(cnt);
+        return answer;
     }
 }

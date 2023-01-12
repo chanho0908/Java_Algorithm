@@ -1,5 +1,4 @@
 import java.util.Scanner;
-import java.util.regex.Pattern;
 
 /*
     5. 특정 문자 뒤집기
@@ -15,11 +14,9 @@ import java.util.regex.Pattern;
  */
 public class No5 {
     public static void main(String[] args) {
-        System.out.println("문자열 입력");
         Scanner sc = new Scanner(System.in);
         String input = sc.nextLine();
-        System.out.println("성공 !" + solution(input));
-        System.out.println("dsd");
+        System.out.println(solution(input));
     }
 
     public static String solution(String input) {
@@ -27,23 +24,16 @@ public class No5 {
         int lt = 0, rt = c.length - 1;
 
         while (lt < rt){
-            if(Pattern.matches("^[a-zA-z]*$",  String.valueOf(c[lt])) &&
-                    Pattern.matches("^[a-zA-z]*$",  String.valueOf(c[rt]))){
+            if(!Character.isAlphabetic(c[lt])) lt++;
+            else if (!Character.isAlphabetic(c[rt])) rt--;
+            else{
                 char tmp = c[lt];
                 c[lt] = c[rt];
                 c[rt] = tmp;
                 lt++;
                 rt--;
-                System.out.println(lt + "/" + rt);
-                System.out.println(String.valueOf(c));
-            }else {
-                lt++; rt--;
             }
         }
-        /*
-        * while 안에서 특수문자일 경우의 조건을 지정하지 않아
-        * 첫 글자와 마지막 글자막 비교하는 에러 발생
-        * */
         //a#b!GE*T@S
         return String.valueOf(c);
     }
@@ -70,6 +60,31 @@ public class Main {
                 c[rt] = tmp;
                 lt++;
                 rt--;
+            }
+        }
+        return String.valueOf(c);
+    }
+}
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String s = sc.nextLine();
+        System.out.println(solution(s));
+    }
+    //a#b!GE*T@S
+    //S#T!EG*b@a
+    // kj#$stpj
+    // jp #$ts jk 정답
+    // jp #$st jk
+    public static String solution(String s){
+        char[] c = s.toCharArray();
+        for (int i=0; i < c.length / 2; i++){
+            if(Character.isAlphabetic(c[i]) && Character.isAlphabetic(c[c.length-i-1])){
+                char tmp = c[i];
+                c[i] = c[c.length-i -1];
+                c[c.length-i -1] = tmp;
             }
         }
         return String.valueOf(c);

@@ -27,12 +27,17 @@ public class No1 {
         }
         System.out.println(solution(input, n));
     }
-
-    public static String solution(ArrayList<Integer> input, int n) {
-        String result = String.valueOf(input.get(0));
+    //8
+    //130 135 148 140 145 150 150 153
+    public static int solution(ArrayList<Integer> input, int n) {
+        int cnt = 1;
+        int max = input.get(0);
         for(int i=1; i < n; i++){
-            if(input.get(i) > input.get(i-1)) result +=  " " + input.get(i);
+            if (max < input.get(i)){
+                max = input.get(i);
+                cnt++;
+            }
         }
-        return result;
+        return cnt;
     }
 }
