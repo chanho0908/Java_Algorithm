@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
 
 /*
@@ -29,12 +30,20 @@ public class Eratosthenes {
     }
 
     public static int solution(int n) {
+        int cnt = 0;
         int[] arr = new int[n+1];
-        int answer = 0;
+        ArrayList<Integer> prime = new ArrayList<>();
         for (int i=2; i <= n; i++){
-            if (arr[i] == 0) answer++;
-            for (int j=i; j<=n; j += i) arr[j] = 1;
+            if (arr[i] == 0){
+                cnt++;
+                //prime.add(arr[i]); // 소수만 출력할 때
+                for (int j=i+i; j <=n; j+=i){
+                    if (arr[j] == 1) continue;
+                    arr[j] = 1;
+                }
+            }
         }
-        return answer;
+        //for (int x : prime) System.out.print(x + " ");
+        return cnt;
     }
 }

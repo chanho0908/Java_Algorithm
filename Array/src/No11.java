@@ -56,42 +56,35 @@ public class No11 {
         int n = sc.nextInt();
         int[][] arr = new int[n+1][6];
 
-        for(int i=1; i <= n; i++) {
-            arr[0][i] = i;
-            arr[i][0] = i;
-        }
-
         sc.nextLine();
-        for (int i=1; i <= n; i++){
-            for (int j=1; j <= n; j++){
-                if (arr[i][j] == 0){
-                    arr[i][j] = sc.nextInt();
-                }
+        for (int i = 1; i <= n; i++){
+            for (int j = 1; j <= 5; j++){
+                arr[i][j] = sc.nextInt();
             }
         }
-        System.out.println(solution(arr, n));
-    }
 
-    public static int solution(int[][] arr, int n) {
-        int cnt = 0;
+        solution(arr, n);
+    }
+    public static void solution(int[][] arr, int n) {
         int max = 0;
         int rs = 0;
 
-        for (int i=1; i <= n; i++){
-            cnt = 0;
+        for (int i=1; i <= n; i++){ //학생 번호
+            int cnt = 0;
             for (int j=1; j <= n; j++){
-                for(int k=1; k<=5; k++){
-                    if(arr[i][k] == arr[j][k]){
+                for (int k = 1; k <= 5; k++){
+                    if (arr[i][k] == arr[j][k]){
                         cnt++;
                         break;
                     }
                 }
             }
-            if (cnt > max){
+            if (max < cnt){
                 max = cnt;
                 rs = i;
             }
         }
-        return rs;
+        System.out.println(rs);
+
     }
 }
