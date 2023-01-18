@@ -49,9 +49,7 @@ public class No6 {
                 if (arr[lt] == 0) cnt--;
                 lt++;
             }
-            System.out.println("lt : "  + lt);
             answer = Math.max(answer, i-lt +1);
-            System.out.println(answer);
         }
 
         return answer;
