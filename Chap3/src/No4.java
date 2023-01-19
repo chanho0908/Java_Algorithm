@@ -32,6 +32,7 @@ public class No4 {
     public static int solution(int [] arr, int n, int m){
         int answer=0, sum = 0;
 
+        /* 이중 for 사용시
         for (int i=0; i<n; i++){
             sum = 0;
             for (int j=i; j<n; j++){
@@ -41,6 +42,17 @@ public class No4 {
                     break;
                 }
                 if (sum > m) break;
+            }
+        }*/
+
+        int lt = 0;
+        for (int rt = 0; rt<n; rt++){
+            sum += arr[rt];
+            if (sum == m) answer++;
+
+            while (sum >= m){
+                sum -= arr[lt++];
+                if (sum == m) answer++;
             }
         }
 

@@ -31,22 +31,11 @@ public class No5 {
         int n = sc.nextInt();
         System.out.println(solution(n));
     }
-    // 8 6
-    // 1 2 1 3 1 1 1 2
+
     public static int solution(int n){
         int answer=0, sum = 0;
 
-        for (int i=1; i < (n/2) + 1; i++){
-            sum=0;
-            for (int j=i; j<n; j++){
-                sum += j;
-                if (sum > n) break;
-                if (sum == n){
-                    answer++;
-                    break;
-                }
-            }
-        }
+
 
         return answer;
     }

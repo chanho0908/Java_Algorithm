@@ -20,7 +20,6 @@ import java.util.Scanner;
 
     두 번째 줄에 N개의 숫자열이 주어집니다. 각 숫자는 500이하의 음이 아닌 정수입니다.
 
-
     출력
     첫 줄에 최대 매출액을 출력합니다.
 
@@ -44,11 +43,20 @@ public class No3 {
         for (int i=0; i<k; i++) sum+=arr[i];
         answer = sum;
 
-        for (int i=k; i<n; i++){
-            sum += (arr[i] - arr[i-k]);
+        for (int i=k; i < n; i++){
+            sum += arr[i] - arr[i-k];
+            /*
+                첫번째 합 : 12 15 11에서 다음 합을 구할 경우 i번째 값 20을 더하고 가장 처음 더한 값인
+                12를 빼줌으로 써 결과적으로 15 11 20의 합이 된다.
+             */
+
             answer = Math.max(answer, sum);
         }
-        return answer;
 
+        return answer;
     }
 }
+/*
+    이 문제를 이중 for문으로 해결할 경우 시간 복잡도는 O(N x X)가 되므로
+    O(n) 으로 해결해기 위해 반복문을 한번만 사용한다 => Sliding Window
+ */
