@@ -35,8 +35,6 @@ public class No5 {
     public static int solution(int n){
         int answer=0, sum = 0;
 
-
-
         return answer;
     }
 }

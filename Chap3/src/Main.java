@@ -5,29 +5,29 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int a = sc.nextInt();
-        int[] arr1 = new int[a];
-        sc.nextLine();
-        for (int i = 0; i < a; i++) arr1[i] = sc.nextInt();
-
-        int b = sc.nextInt();
-        int[] arr2 = new int[b];
-        sc.nextLine();
-        for (int i = 0; i < b; i++) arr2[i] = sc.nextInt();
-        for (int x : solution(arr1, arr2, a, b)){
-            System.out.print(x + " ");
-        }
+        int n = sc.nextInt();
+        System.out.println(solution(n));
     }
-    public static ArrayList<Integer> solution(int [] arr1, int [] arr2, int a, int b){
-        ArrayList<Integer> answer = new ArrayList<>();
-        int p1=0, p2=0;
-        while (p1 < a && p2 < b){
-            if (arr1[p1] < arr2[p2]) answer.add(arr1[p1++]);
-            else answer.add(arr2[p2++]);
-        }
+    // 15
 
-        while (p2 < b) answer.add(arr2[p2++]);
+    public static int solution(int n) {
+        int answer = 0;
+
+        for (int rt=1; rt < n/2 +1; rt++){
+            int sum = 0;
+            int lt = rt;
+
+            while (sum <= n){
+                sum += lt;
+                if (sum == n){
+                    answer++;
+                }
+                lt++;
+            }
+
+        }
 
         return answer;
     }
+
 }
