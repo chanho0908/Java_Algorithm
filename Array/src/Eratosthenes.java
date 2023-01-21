@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Scanner;
 
 /*
@@ -37,7 +36,7 @@ public class Eratosthenes {
             if (arr[i] == 0){
                 cnt++;
                 //prime.add(arr[i]); // 소수만 출력할 때
-                for (int j=i+i; j <=n; j+=i){
+                for (int j=i+i; j <= n; j+=i){
                     if (arr[j] == 1) continue;
                     arr[j] = 1;
                 }

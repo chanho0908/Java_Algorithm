@@ -25,19 +25,19 @@ public class No1 {
         for(int i=0; i<n; i++){
             input.add(sc.nextInt());
         }
-        System.out.println(solution(input, n));
-    }
-    //8
-    //130 135 148 140 145 150 150 153
-    public static int solution(ArrayList<Integer> input, int n) {
-        int cnt = 1;
-        int max = input.get(0);
-        for(int i=1; i < n; i++){
-            if (max < input.get(i)){
-                max = input.get(i);
-                cnt++;
-            }
+        for (int x : solution(input, n)){
+            System.out.print(x + " ");
         }
-        return cnt;
+    }
+    //6
+    //7 3 9 5 6 12
+    public static ArrayList<Integer> solution(ArrayList<Integer> input, int n) {
+        ArrayList<Integer> answer = new ArrayList<>();
+        answer.add(input.get(0));
+
+        for (int i=1; i < input.size(); i++){
+            if (input.get(i) > input.get(i-1)) answer.add(input.get(i));
+        }
+        return answer;
     }
 }
