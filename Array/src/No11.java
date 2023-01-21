@@ -72,10 +72,11 @@ public class No11 {
         for (int i=1; i <= n; i++){ //학생 번호
             int cnt = 0;
             for (int j=1; j <= n; j++){
-                for (int k = 1; k <= 5; k++){
+                for (int k = 1; k <= 5; k++){ // 학년
                     if (arr[i][k] == arr[j][k]){
+                        // i번 학생이 j번 학생과 같은 학년이 있는가 ?
                         cnt++;
-                        break;
+                        break; // 같은 반이였던 학생이 있을 경우 2번 카운팅 방지
                     }
                 }
             }
