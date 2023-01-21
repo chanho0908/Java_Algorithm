@@ -20,52 +20,52 @@ import java.util.Scanner;
 
 public class No9 {
 
-        public static void main(String[] args) {
-            Scanner sc = new Scanner(System.in);
-        /*
-        int[][] arr = {
-                { 10, 13, 10, 12, 15}, // 60
-                { 12, 39, 30, 23, 11}, // 115
-                { 11, 25, 50, 53, 15 }, // 154
-                { 19, 27, 29, 37, 27 }, // 139
-                { 19, 13, 30, 13, 19 }}; // 94
-           // 134 71 117 149 138 87  155*/
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+    /*
+    int[][] arr = {
+            { 10, 13, 10, 12, 15}, // 60
+            { 12, 39, 30, 23, 11}, // 115
+            { 11, 25, 50, 53, 15 }, // 154
+            { 19, 27, 29, 37, 27 }, // 139
+            { 19, 13, 30, 13, 19 }}; // 94
+       // 134 71 117 149 138 87  155*/
 
-            int n = sc.nextInt();
-            int[][] arr = new int[n][n];
-            sc.nextLine();
-            for (int i = 0; i < n; i++){
-                for (int j = 0; j < n; j++){
-                    arr[i][j] = sc.nextInt();
-                }
+        int n = sc.nextInt();
+        int[][] arr = new int[n][n];
+        sc.nextLine();
+        for (int i = 0; i < n; i++){
+            for (int j = 0; j < n; j++){
+                arr[i][j] = sc.nextInt();
             }
-            solution(arr, n);
+        }
+        solution(arr, n);
+    }
+
+    public static void solution(int[][] arr, int n) {
+        int max = 0;
+        int sum1 = 0;
+        int sum2 = 0;
+
+        for (int i=0; i < n; i++){
+            sum1 = 0;
+            sum2 = 0;
+            for (int j =0; j < n; j++){
+                sum1 += arr[i][j];
+                sum2 += arr[j][i];
+            }
+            if (max < sum1) max = sum1;
+            if (max < sum2) max = sum2;
         }
 
-        public static void solution(int[][] arr, int n) {
-            int max = 0;
-            int sum1 = 0;
-            int sum2 = 0;
+        sum1=sum2=0;
+        for (int i = 0; i < n; i++){
+            sum1 += arr[i][i];
+            sum2 += arr[i][n -1 -i];
 
-            for (int i=0; i < n; i++){
-                sum1 = 0;
-                sum2 = 0;
-                for (int j =0; j < n; j++){
-                    sum1 += arr[i][j];
-                    sum2 += arr[j][i];
-                }
-                if (max < sum1) max = sum1;
-                if (max < sum2) max = sum2;
-            }
-
-            sum1=sum2=0;
-            for (int i = 0; i < n; i++){
-                sum1 += arr[i][i];
-                sum2 += arr[i][n -1 -i];
-
-                if (max < sum1) max = sum1;
-                if (max < sum2) max = sum2;
-            }
-            System.out.println(max);
+            if (max < sum1) max = sum1;
+            if (max < sum2) max = sum2;
         }
+        System.out.println(max);
+    }
 }

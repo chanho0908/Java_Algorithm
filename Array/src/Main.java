@@ -11,32 +11,22 @@ public class Main {
         for(int i=0; i<n; i++){
             input.add(sc.nextInt());
         }
-        for (int x : solution(input, n)) System.out.print(x + " ");
+        solution(input, n);
 
     }
-    //9
-    //32 55 62 20 250 370 200 30 100
-    public static ArrayList<Integer> solution(ArrayList<Integer> arr, int n) {
-        ArrayList<Integer> rs = new ArrayList<>();
+    // 5
+    // 87 89 92 100 76
+    public static void solution(ArrayList<Integer> arr, int n) {
 
-        for (int x : arr){
-            int num = 0;
-            while (x > 0){
-                int digit = x % 10;
-                num = num * 10 + digit;
-                x /= 10;
+        for (int i=0; i < arr.size(); i++){
+            int rank = 1;
+            for (int j=0; j<arr.size(); j++){
+                if (arr.get(i) < arr.get(j)) {
+                    rank++;
+                }
             }
-            rs.add(num);
+            System.out.print(rank + " ");
         }
-
-        return rs;
     }
 
-    public static boolean isPrime(int n){
-        if (n < 2) return false;
-        for (int i=2; i < Math.sqrt(n); i++){
-            if (n % i == 0) return false;
-        }
-        return true;
-    }
 }
