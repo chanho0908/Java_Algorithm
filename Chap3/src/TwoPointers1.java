@@ -38,6 +38,9 @@ public class TwoPointers1 {
     public static ArrayList<Integer> solution(int [] arr1, int [] arr2, int a, int b){
         ArrayList<Integer> answer = new ArrayList<>();
         int p1 = 0, p2 = 0;
+
+        // 현재는 a가 더 적은 숫자가 들어오지만 a가 더 긴 배열이 들어오면 에러가 발생하기 때문에
+        // p1과 p2의 경우 모두 종료 조건을 주어야 한다.
         while (p1 < a && p2 < b){
             if (arr1[p1] < arr2[p2]) answer.add(arr1[p1++]);
             else answer.add(arr2[p2++]);

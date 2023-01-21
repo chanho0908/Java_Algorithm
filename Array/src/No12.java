@@ -61,15 +61,16 @@ public class No12 {
     public static int solution(int[][] arr, int n, int m) {
         // n = 4,  m = 3
         int answer = 0;
-        for(int i=1; i <= n; i++){
-            for(int j=1; j <= n; j++){
+        for(int i=1; i <= n; i++){ //멘토
+            for(int j=1; j <= n; j++){ // 멘티 (i,j)
                 int cnt = 0;
                 if(i == j) break;
-                for (int k=0; k < m; k++){
+                for (int k=0; k < m; k++){ // 테스트 횟수
                     int posI = 0, posJ = 0;
-                    for (int s=0; s < n; s++){
+                    for (int s=0; s < n; s++){ // 등수
                         if (arr[k][s] == i) posI = s;
                         if (arr[k][s] == j) posJ = s;
+                        // k번째 테스트에서의 등수에 i의 값이 있다면 >> i번 학생의 등수 !
                     }
                     if (posI < posJ) cnt++;
                 }
