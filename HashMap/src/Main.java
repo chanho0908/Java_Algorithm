@@ -4,31 +4,29 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int n = sc.nextInt();
-        sc.nextLine();
-        String str = sc.nextLine();
-        System.out.println(solution(n, str));
+        String str1 = sc.nextLine();
+        String str2 = sc.nextLine();
+        System.out.println(solution(str1, str2));
 
     }
-    //15
-    //BACBACCACCBDEDE
-    public static char solution(int n, String str){
-        char answer = ' ';
-
+    // AbaAeCe
+    // baeeACA
+    public static String solution(String a, String b){
+        String answer = "YES";
         HashMap<Character, Integer> map = new HashMap<>();
 
-        for (char x : str.toCharArray()){
-            map.put(x, map.getOrDefault(x, 0) +1);
+        for (char x : a.toCharArray()){
+            map.put(x, map.getOrDefault(x, 0) + 1);
         }
 
-        int max = Integer.MIN_VALUE;
-        for (char x : map.keySet()){
-            int value = map.get(x);
-            max = Math.max(max, value);
-            if (max == value) answer = x;
+        for (char x : b.toCharArray()){
+            if (!map.containsKey(x) || map.get(x) == 0){
+                return "NO";
+            }
+            map.put(x, map.get(x)-1);
         }
+
 
         return answer;
-
     }
 }
