@@ -62,6 +62,9 @@ public class Sales {
             answer.add(map.size());
             map.put(arr[lt], map.get(arr[lt]) -1);
             if (map.get(arr[lt]) == 0 ) map.remove(arr[lt]);
+            // 0이 일 때 삭제하는 조건 없이 remove 하게 되면
+            // 뒤에 동일한 key 값이 있는 값도 삭제하기 때문에 반드시
+            // value == 0 일 때, 삭제하는 조건을 줘야함
             lt++;
         }
 
