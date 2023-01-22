@@ -6,25 +6,27 @@ public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
-        System.out.println(solution(n));
+        int k = sc.nextInt();
+        sc.nextLine();
+        int arr[] = new int[n];
+        for (int i=0; i<n; i++) arr[i] =  sc.nextInt();
+        System.out.println(solution(arr, n, k));
     }
-    // 15
-
-    public static int solution(int n) {
+    // 14 2
+    // 1 1 0 0 1 1 0 1 1 0 1 1 0 1
+    public static int solution(int [] arr, int n, int k) {
         int answer = 0;
 
-        for (int rt=1; rt < n/2 +1; rt++){
-            int sum = 0;
-            int lt = rt;
+        int cnt = 0;
+        int lt = 0;
+        for (int i=0; i<n; i++){
+            if (arr[i] == 0 ) cnt++;
 
-            while (sum <= n){
-                sum += lt;
-                if (sum == n){
-                    answer++;
-                }
+            while (cnt > k){
+                cnt--;
                 lt++;
             }
-
+            answer = Math.max(answer, lt);
         }
 
         return answer;

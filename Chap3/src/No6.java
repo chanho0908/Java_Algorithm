@@ -49,4 +49,17 @@ public class No6 {
 
         return answer;
     }
+
+    /*  ### lt는 0에서 1로 바꾼 값을 지우고 증가 !!! ###
+        1 1 0 0 1 1 0 1 1 0 1 1 0 1
+
+        1 1 1 1 1 1 0 1 1 0 1 1 0 1 > answer = 6
+        rt = 5 , lt = 0, cnt = 2
+
+        1 1 0 1 1 1 1 1 1 0 1 1 0 1 > answer = 6
+        rt = 8 , lt = 3, cnt = 2
+
+        1 1 0 0 1 1 1 1 1 1 1 1 0 1 > answer = 8
+        rt = 11 , lt = 4, cnt = 2
+     */
 }
