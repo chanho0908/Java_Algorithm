@@ -6,32 +6,28 @@ import java.util.TreeSet;
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int n = sc.nextInt();
-        int k = sc.nextInt();
-        sc.nextLine();
-        int[] arr = new int[n];
-        for (int i=0; i<n; i++){
-            arr[i] = sc.nextInt();
-        }
-        for (int x : solution(n, k, arr)){
-            System.out.print(x + " ");
-        }
+        String s = sc.nextLine();
+        String n = sc.nextLine();
+        System.out.println(solution(s,n));
 
     }
-    // 7 4
-    // 20 12 20 10 23 17 10
-    public static ArrayList<Integer> solution(int n, int k, int[] arr){
-        ArrayList<Integer> answer = new ArrayList<>();
-        HashMap<Integer, Integer> map = new HashMap<>();
+    // bacaAacba
+    // abc
+    public static int solution(String s, String n){
+        int answer = 0;
+        int len = n.length()-1;
+        HashMap<Character, Integer> map = new HashMap<>();
+        HashMap<Character, Integer> myMap = new HashMap<>();
 
-        for (int i=0; i < k-1; i++) map.put(arr[i], map.getOrDefault(arr[i], 0)+1);
+        for (int i=0; i < len; i++) map.put(s.charAt(i), map.getOrDefault(s.charAt(i), 0) +1 );
+        for (char x : n.toCharArray()) myMap.put(x, myMap.getOrDefault(x, 0) + 1);
 
         int lt = 0;
-        for (int rt = k-1; rt < n; rt++){
-            map.put(arr[rt], map.getOrDefault(arr[rt], 0)+1);
-            answer.add(map.size());
-            map.put(arr[lt], map.get(arr[lt])-1);
-            if (map.get(arr[lt]) == 0) map.remove(arr[lt]);
+        for (int rt = len; rt < s.length(); rt++){
+            map.put(s.charAt(rt), map.getOrDefault(s.charAt(rt), 0) +1 );
+            if (map.equals(myMap)) answer++;
+            map.put(s.charAt(lt), map.get(s.charAt(lt))-1);
+            if (map.get(s.charAt(lt)) == 0) map.remove(s.charAt(lt));
             lt++;
 
         }
