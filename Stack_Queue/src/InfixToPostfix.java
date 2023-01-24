@@ -6,11 +6,12 @@ class Stacks
 {
     char a[] = new char[100];
     int top=-1;
+
     void push(char c)
     {
         try
         {
-            a[++top]= c;
+            a[++top]= c; // 값을 넣으면 top 이 추가된 값을 가르킴
         }
         catch(StringIndexOutOfBoundsException e)
         {
@@ -20,13 +21,13 @@ class Stacks
     }
     char pop()
     {
-        return a[top--];
+        return a[top--]; //
     }
     boolean isEmpty()
     {
-        return (top==-1)?true:false;
+        return (top==-1) ? true:false;
     }
-    char peek()
+    char peek() // top 을 확인하는 메소드
     {
         return a[top];
     }
@@ -42,10 +43,10 @@ public class InfixToPostfix
     BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
     //get input from user
-    System.out.println("Enter the infix expression you want to convert: ");
+    System.out.println("계산식을 입력하세요 : ");
     infix = br.readLine();
 
-    System.out.println("Postfix expression for the given infix expression is:" + toPostfix(infix));
+    System.out.println("Postfix to infix : " + toPostfix(infix));
 }
 
 private static String toPostfix(String infix)
@@ -63,7 +64,7 @@ private static String toPostfix(String infix)
             //push (
             operators.push(symbol);
         } else if (symbol == ')')
-        // push everything back to(
+        // ( 이 나올 때 까지 pop
         {
             while (operators.peek() != '(')
             {
@@ -82,7 +83,7 @@ private static String toPostfix(String infix)
         postfix = postfix + operators.pop();
     return postfix;
 }
-    static int prec(char x)
+    static int prec(char x) // 연산자 우선 순위
     {
         if (x == '+' || x == '-')
             return 1;
