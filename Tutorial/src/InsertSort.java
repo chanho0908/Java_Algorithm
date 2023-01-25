@@ -36,7 +36,21 @@ public class InsertSort {
              * 그러므로 타겟은 j + 1 에 위치하게 된다.
              */
             arr[j+1] = target;
+            for (int x : arr) System.out.print(x + " ");
+            System.out.println();
         }
-        for (int x : arr) System.out.print(x + " ");
     }
+
+
+    /*
+        1 10 '5' 8 7 6 4 3 2 9
+        1 5 10 '8' 7 6 4 3 2 9
+        1 5 8 10 '7' 6 4 3 2 9
+        1 5 7 8 10 '6' 4 3 2 9
+        1 5 6 7 8 10 '4' 3 2 9
+        1 4 5 6 7 8 10 '3' 2 9
+        1 3 4 5 6 7 8 10 '2' 9
+        1 2 3 4 5 6 7 8 10 '9'
+        >> 1 2 3 4 5 6 7 8 9 10
+     */
 }
