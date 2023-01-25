@@ -1,4 +1,13 @@
+import java.util.Arrays;
+
 public class QuickSort {
+
+    public static void main(String[] args) {
+        int[] arr = {1, 10, 5, 8, 7, 6, 4, 3, 2, 9};
+        sort(arr);
+        for (int x : arr) System.out.print(x + " ");
+    }
+
     public static void sort(int[] a) {
         left_pivot_sort(a, 0, a.length - 1);
     }
@@ -7,8 +16,8 @@ public class QuickSort {
      * 중간 피벗 선택 방식
      *
      * @param arr 정렬할 배열
-     * @param lt  현재 부분배열의 왼쪽
-     * @param rt  현재 부분배열의 오른쪽
+     * @param lt  현재 부분배열의 첫번째 원소
+     * @param rt  현재 부분배열의 마지막 원소
      */
     public static void left_pivot_sort(int[] arr, int lt, int rt) {
         /*
@@ -44,7 +53,7 @@ public class QuickSort {
          *  피벗 값을 기준으로 왼쪽에는 피벗보다 작거나 같은 값
          *  오른쪽엔 피벗보다 큰 값들이 위치한다.
          *
-         *  result : pivot = lo
+         *  result : pivot = lt
          *
          *  Recursion(재귀):
          *
@@ -59,54 +68,48 @@ public class QuickSort {
          */
         int pivot = partition(arr, lt, rt);
 
-        left_pivot_sort(arr, lt, pivot -1);
+        left_pivot_sort(arr, lt, pivot -1); // 왼쪽
 
-        left_pivot_sort(arr, pivot +1, rt);
+        left_pivot_sort(arr, pivot +1, rt); // 오른쪽
 
     }
     /**
      * pivot을 기준으로 파티션을 나누기 위한 약한 정렬 메소드
      *
-     * @param a		정렬 할 배열
+     * @param arr		정렬 할 배열
      * @param left	현재 배열의 가장 왼쪽 부분
      * @param right	현재 배열의 가장 오른쪽 부분
      * @return		최종적으로 위치한 피벗의 위치(lo)를 반환
      */
-    private static int partition(int[] a, int left, int right) {
+    private static int partition(int[] arr, int left, int right) {
 
         int lt = left;
         int rt = right;
-        int pivot = a[left];		// 부분리스트의 왼쪽 요소를 피벗으로 설정
+        int pivot = arr[left]; // 부분리스트의 왼쪽 요소를 피벗으로 설정
 
-        // lo가 hi보다 작을 때 까지만 반복한다.
+        // 엇갈릴 떄 까지 반복
         while(lt < rt) {
 
-            /*
-             * hi가 lo보다 크면서, hi의 요소가 pivot보다 작거나 같은 원소를
-             * 찾을 떄 까지 hi를 감소시킨다.
-             */
-            while(a[rt] > pivot && lt < rt) {
+            // 피벗 값보다 작은 값을 만날 때 까지 감소
+            while(arr[rt] > pivot && lt < rt) {
                 rt--;
             }
 
-            /*
-             * hi가 lo보다 크면서, lo의 요소가 pivot보다 큰 원소를
-             * 찾을 떄 까지 lo를 증가시킨다.
-             */
-            while(a[lt] <= pivot && lt < rt) {
+            // 피벗 값 보다 큰 값을 만날 때 까지 증가
+            while(arr[lt] <= pivot && lt < rt) {
                 lt++;
             }
 
             // 교환 될 두 요소를 찾았으면 두 요소를 바꾼다.
-            swap(a, lt, rt);
+            swap(arr, lt, rt);
         }
 
 
         /*
-         *  마지막으로 맨 처음 pivot으로 설정했던 위치(a[left])의 원소와
-         *  lt 가리키는 원소를 바꾼다.
+         *  마지막으로 맨 처음 pivot 으로 설정했던 위치(arr[left])의 원소와
+         *  lt를 가리키는 원소를 바꾼다.
          */
-        swap(a, left, lt);
+        swap(arr, left, lt);
 
         // 두 요소가 교환되었다면 피벗이었던 요소는 lt 위치하므로 lt 반환한다.
         return lt;
@@ -116,9 +119,5 @@ public class QuickSort {
         int tmp = arr[a];
         arr[a] = arr[b];
         arr[b] = tmp;
-    }
-
-    public static void main(String[] args) {
-
     }
 }
