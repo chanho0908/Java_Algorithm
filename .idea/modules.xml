@@ -9,6 +9,8 @@
       <module fileurl="file://$PROJECT_DIR$/Java_Algorithm.iml" filepath="$PROJECT_DIR$/Java_Algorithm.iml" />
       <module fileurl="file://$PROJECT_DIR$/Stack_Queue/Stack_Queue.iml" filepath="$PROJECT_DIR$/Stack_Queue/Stack_Queue.iml" />
       <module fileurl="file://$PROJECT_DIR$/String/String.iml" filepath="$PROJECT_DIR$/String/String.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Tutorial/Tutorial.iml" filepath="$PROJECT_DIR$/Tutorial/Tutorial.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sort/sort.iml" filepath="$PROJECT_DIR$/sort/sort.iml" />
     </modules>
   </component>
 </project>
