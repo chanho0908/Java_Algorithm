@@ -1,16 +1,23 @@
 public class InsertSort {
     public static void main(String[] args) {
         int[] arr = {1, 10, 5, 8, 7, 6, 4, 3, 2, 9};
+        int[] array = {11, 7, 5, 6, 10, 9};
+
+        for (int x : sort(array)) System.out.print(x + " ");
+        System.out.println();
+
+    }
+
+    public static int[] sort(int[] arr){
         for (int i=1 ; i < arr.length; i++){
             int j = i - 1;
             int target = arr[i];
 
             // 타겟이 이전 원소보다 크기 전 까지 반복 ex) 3 4(target)
-            while (arr[j] >=0 && target < arr[j]){
+            while (j >= 0 && target < arr[j]){
                 arr[j+1] = arr[j]; // 이전 원소를 한 칸씩 뒤로 이동
                 j--;
             }
-
             /*
 
                 1, 10, 5, 8, 7, 6, 4, 3, 2, 9
@@ -36,12 +43,9 @@ public class InsertSort {
              * 그러므로 타겟은 j + 1 에 위치하게 된다.
              */
             arr[j+1] = target;
-            for (int x : arr) System.out.print(x + " ");
-            System.out.println();
         }
+        return arr;
     }
-
-
     /*
         1 10 '5' 8 7 6 4 3 2 9
         1 5 10 '8' 7 6 4 3 2 9
@@ -52,5 +56,8 @@ public class InsertSort {
         1 3 4 5 6 7 8 10 '2' 9
         1 2 3 4 5 6 7 8 10 '9'
         >> 1 2 3 4 5 6 7 8 9 10
-     */
+
+    */
+
+
 }

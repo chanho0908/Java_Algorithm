@@ -1,10 +1,10 @@
 /*
-    1. 선택 정렬
+    2. 버블 정렬
     설명
 
     N개이 숫자가 입력되면 오름차순으로 정렬하여 출력하는 프로그램을 작성하세요.
 
-    정렬하는 방법은 선택정렬입니다.
+    정렬하는 방법은 버블정렬입니다.
 
 
     입력
@@ -28,7 +28,7 @@
  */
 import java.util.Scanner;
 
-public class SelectionSort {
+public class BubbleSort {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
@@ -41,11 +41,11 @@ public class SelectionSort {
     public static void solution(int n, int[] arr){
 
         for (int i=0; i < n; i++){
-            for (int j=i+1; j<n; j++){
-                if (arr[i] > arr[j]){
-                    int tmp = arr[i];
-                    arr[i] = arr[j];
-                    arr[j] = tmp;
+            for (int j=0; j < n-i-1; j++){
+                if (arr[j] > arr[j+1]){
+                    int tmp = arr[j];
+                    arr[j] = arr[j+1];
+                    arr[j+1] = tmp;
                 }
             }
         }

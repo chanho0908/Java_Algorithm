@@ -1,10 +1,10 @@
 /*
-    1. 선택 정렬
+    3. 삽입 정렬
     설명
 
     N개이 숫자가 입력되면 오름차순으로 정렬하여 출력하는 프로그램을 작성하세요.
 
-    정렬하는 방법은 선택정렬입니다.
+    정렬하는 방법은 삽입정렬입니다.
 
 
     입력
@@ -20,34 +20,37 @@
     예시 입력 1
 
     6
-    13 5 11 7 23 15
+    11 7 5 6 10 9
     예시 출력 1
 
-    5 7 11 13 15 23
+    5 6 7 9 10 11
 
  */
 import java.util.Scanner;
 
-public class SelectionSort {
+public class InsertSort {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
         int[] arr = new int[n];
         for (int i=0; i<n; i++) arr[i] = sc.nextInt();
-        solution(n, arr);
-        for (int x : arr) System.out.print(x + " ");
+        for (int x : solution(n, arr)) System.out.println(x + " ");
+
     }
 
-    public static void solution(int n, int[] arr){
+    public static int[] solution(int n, int[] arr){
 
-        for (int i=0; i < n; i++){
-            for (int j=i+1; j<n; j++){
-                if (arr[i] > arr[j]){
-                    int tmp = arr[i];
-                    arr[i] = arr[j];
-                    arr[j] = tmp;
-                }
+        for (int i=1; i < n; i++){
+            int target = arr[i], j;
+            for (j = i-1; j >= 0; j--){
+                if (arr[j] > target ){
+                    arr[j+1] = arr[j];
+                }else break;
             }
+            arr[j+1] = target;
         }
+        return arr;
     }
+
+
 }
