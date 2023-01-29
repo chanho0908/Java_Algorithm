@@ -1,5 +1,4 @@
 /*
-
     6. 장난꾸러기
     설명
 
@@ -63,8 +62,6 @@ public class Kid {
         for (int i=0; i < n; i++) {
             if (arr[i] != tmp[i]) answer.add(i+1);
         }
-
-
         return answer;
     }
 }
