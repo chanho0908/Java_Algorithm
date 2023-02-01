@@ -21,7 +21,7 @@ public class Fibonacci {
 
         for(int x : solution(n) ) System.out.print(x + " ");
 
-        //System.out.println(fibonacci(n));
+        System.out.println(fibonacci(n));
         //notUseFor(n);
     }
 
