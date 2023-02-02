@@ -29,8 +29,10 @@ public class Memorization {
         //Memorization 활용
         fibo = new int[n+1];
         long beforeTime = System.currentTimeMillis();
+
         memorization(n);
         for (int i=1; i<=n; i++) System.out.print(fibo[i] + " ");
+
         long afterTime = System.currentTimeMillis();
         System.out.println("\n실행 시간 : " + (afterTime-beforeTime));
     }
