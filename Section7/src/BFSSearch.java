@@ -38,12 +38,10 @@ public class BFSSearch {
         int L = 0;
         while (!q.isEmpty()){
             int len  = q.size();
-            System.out.print(L + " : ");
             for (int i=0; i<len; i++){
                 int x = q.poll();
                 for (int z : dis){
                     int nx = x+z;
-                    //System.out.print(nx + " ");
                     if (nx==e) return L+1;
                     if (nx >= 1 && nx <=10000 && ch[nx] == 0){
                         ch[nx] = 1;
@@ -52,7 +50,6 @@ public class BFSSearch {
                 }
             }
             L++;
-            //System.out.println();
         }
         return 0;
     }

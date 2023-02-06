@@ -66,10 +66,14 @@ public class AdjacencyList {
         }
 
         ch=new int[n+1];
+
         for(int i=0; i<m; i++){
             int a=sc.nextInt();
             int b=sc.nextInt();
             graph.get(a).add(b);
+        }
+        for (ArrayList<Integer> x : graph){
+            System.out.println(x);
         }
         ch[1]=1;
         T.DFS(1);

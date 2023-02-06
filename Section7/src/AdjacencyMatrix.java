@@ -46,7 +46,7 @@ public class AdjacencyMatrix {
         if (v == n) answer++;
         else {
             for (int i=1; i<=n; i++){
-                if (graph[v][i] == 1 && ch[i] == 0){
+                if (graph[v][i] == 1 && ch[i] == 0 ){
                     ch[i] = 1;
                     DFS(i);
                     ch[i] = 0;
