@@ -4,6 +4,8 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Algorithm/Algorithm.iml" filepath="$PROJECT_DIR$/Algorithm/Algorithm.iml" />
       <module fileurl="file://$PROJECT_DIR$/Section2/Array.iml" filepath="$PROJECT_DIR$/Section2/Array.iml" />
+      <module fileurl="file://$PROJECT_DIR$/DoitAlgorithm/DataStructer/DataStructer.iml" filepath="$PROJECT_DIR$/DoitAlgorithm/DataStructer/DataStructer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/DoitAlgorithm/DoitAlgorithm.iml" filepath="$PROJECT_DIR$/DoitAlgorithm/DoitAlgorithm.iml" />
       <module fileurl="file://$PROJECT_DIR$/Section4/HashMap.iml" filepath="$PROJECT_DIR$/Section4/HashMap.iml" />
       <module fileurl="file://$PROJECT_DIR$/Java_Algorithm.iml" filepath="$PROJECT_DIR$/Java_Algorithm.iml" />
       <module fileurl="file://$PROJECT_DIR$/Section7/Section7.iml" filepath="$PROJECT_DIR$/Section7/Section7.iml" />
