@@ -1,20 +1,15 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Arrays;
 import java.util.StringTokenizer;
-/*
-    9 8
-    CCTGGATTG
-    2 0 1 1
 
- */
 public class DNA {
+    static int s,p,cnt=0;
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
-        int s = Integer.parseInt(st.nextToken());
-        int p = Integer.parseInt(st.nextToken());
+        s = Integer.parseInt(st.nextToken());
+        p = Integer.parseInt(st.nextToken());
 
         st = new StringTokenizer(br.readLine());
         String input = st.nextToken();
@@ -25,23 +20,19 @@ public class DNA {
             arr[i] = Integer.parseInt(st.nextToken());
         }
 
-        //int[] dna = getArr(input, p);
         int lt = 0;
         int rt = p;
-        while (rt != p+1){
-            System.out.println(input.substring(lt,rt));
-            lt++;
-            rt++;
+        int len = input.length()+1;
+        while (rt < len){
+            int[] dna = getArr(input.substring(lt++,rt++));
+            if(check(arr,dna)) cnt++;
         }
-
-        System.out.println(input.substring(lt,rt));
-
+        System.out.println(cnt);
 
     }
 
-    /*public static int[] getArr(String str, int p){
-        int[] arr = new int[p];
-
+    public static int[] getArr(String str){
+        int[] arr = new int[4];
         for (char x : str.toCharArray()){
             switch (x){
                 case 'A':
@@ -55,15 +46,14 @@ public class DNA {
             }
         }
         return arr;
-    }*/
+    }
 
     public static boolean check(int[] a, int[] b){
         boolean flag = true;
-        for (int i=0; i<4; i++){
-            if (a[i] > b[i]){
-                flag = false;
-            }
+        for (int i=0; i < 4; i++) {
+            if (a[i] > b[i]) flag = false;
         }
+
         return flag;
     }
 }
