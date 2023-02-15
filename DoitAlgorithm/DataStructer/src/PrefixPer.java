@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class No10986 {
+public class PrefixPer {
     static int n,m;
     static long[] arr,cnt;
     public static void main(String[] args){
@@ -9,17 +9,13 @@ public class No10986 {
         m = sc.nextInt();
         long answer = 0;
         arr = new long[n+1];
-        cnt = new long[m+1];
+        cnt = new long[m];
 
-        arr[0] = sc.nextInt();
-        for (int i=1; i < n; i++){
-            arr[i] = arr[i-1] + sc.nextInt();;
-        }
-
-        for (int i=0; i<n; i++){
-            int sum = (int) (arr[i] % m);
-            if (sum == 0) answer++;
-            cnt[sum]++;
+        for (int i=1; i <= n; i++){
+            long val =  (arr[i-1] + sc.nextInt()) % m;
+            arr[i] = val;
+            if (val == 0) answer++;
+            cnt[(int)val]++;
         }
 
         for (int i=0; i<m; i++){
