@@ -5,6 +5,7 @@ import java.util.StringTokenizer;
 
 public class DNA {
     static int s,p,cnt=0;
+    static int[] arr;
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
@@ -15,7 +16,8 @@ public class DNA {
         String input = st.nextToken();
 
         st = new StringTokenizer(br.readLine());
-        int[] arr = new int[s];
+        arr = new int[s];
+
         for (int i=0; i<4; i++){
             arr[i] = Integer.parseInt(st.nextToken());
         }
@@ -25,10 +27,9 @@ public class DNA {
         int len = input.length()+1;
         while (rt < len){
             int[] dna = getArr(input.substring(lt++,rt++));
-            if(check(arr,dna)) cnt++;
+            if(checkArr(dna)) cnt++;
         }
         System.out.println(cnt);
-
     }
 
     public static int[] getArr(String str){
@@ -48,12 +49,11 @@ public class DNA {
         return arr;
     }
 
-    public static boolean check(int[] a, int[] b){
+    public static boolean checkArr(int[] b){
         boolean flag = true;
         for (int i=0; i < 4; i++) {
-            if (a[i] > b[i]) flag = false;
+            if (arr[i] > b[i]) flag = false;
         }
-
         return flag;
     }
 }
