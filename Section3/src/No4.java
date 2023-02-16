@@ -55,7 +55,6 @@ public class No4 {
                 if (sum == m) answer++;
             }
         }
-
         return answer;
     }
 }

@@ -38,7 +38,6 @@ public class Bracket {
         Stack<Character> stack = new Stack<>();
         for (int i=0; i<s.length(); i++){
             if (s.charAt(i) == '(') stack.push(s.charAt(i));
-
             if (s.charAt(i) == ')') {
                 if (stack.isEmpty()) return "NO"; // 닫는 괄호가 많을 떄
                 stack.pop();

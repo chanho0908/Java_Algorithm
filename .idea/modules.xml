@@ -13,8 +13,8 @@
       <module fileurl="file://$PROJECT_DIR$/Section6/SortingandSearching.iml" filepath="$PROJECT_DIR$/Section6/SortingandSearching.iml" />
       <module fileurl="file://$PROJECT_DIR$/Section5/Stack_Queue.iml" filepath="$PROJECT_DIR$/Section5/Stack_Queue.iml" />
       <module fileurl="file://$PROJECT_DIR$/Section1/String.iml" filepath="$PROJECT_DIR$/Section1/String.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Section3/TowPointer.iml" filepath="$PROJECT_DIR$/Section3/TowPointer.iml" />
       <module fileurl="file://$PROJECT_DIR$/Tutorial/Tutorial.iml" filepath="$PROJECT_DIR$/Tutorial/Tutorial.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Section3/TwoPointer.iml" filepath="$PROJECT_DIR$/Section3/TwoPointer.iml" />
     </modules>
   </component>
 </project>
