@@ -44,6 +44,7 @@ public class NGE {
         while (!stack.isEmpty()) NGE[stack.pop()] = -1;
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
         for (int x : NGE) bw.write(x+" ");
+        br.close();
         bw.flush();
     }
 }

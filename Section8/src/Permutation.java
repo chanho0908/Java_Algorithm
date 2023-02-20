@@ -6,7 +6,8 @@ public class Permutation {
 
     public static void DFS(int L){
         if (L == m){
-
+            for (int x : pm) System.out.print(x + " ");
+            System.out.println();
         }else {
 
                 for (int i=0; i<n; i++){
@@ -20,7 +21,7 @@ public class Permutation {
             }
 
 
-        }
+
     }
 
     public static void main(String[] args) {

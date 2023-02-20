@@ -1,27 +1,26 @@
 import java.util.*;
 class Main{
-    static int n, m, answer=Integer.MAX_VALUE;
-    public void DFS(int L, int sum, Integer[] arr){
-        if(sum>m) return;
-        if(L>=answer) return;
-        if(sum==m){
-            answer=Math.min(answer, L);
-        }
-        else{
-            for(int i=0; i<n; i++){
-                DFS(L+1, sum+arr[i], arr);
+    static int n;
+    static int[] ch;
+    public void DFS(int L){
+        if (L == n+1) {
+            String tmp = "";
+            for (int i=1; i <= n; i++) {
+                if (ch[i] == 1) tmp += i + " ";
             }
+            if (tmp.length() > 0) System.out.println(tmp);
+        }else {
+            ch[L] = 1;
+            DFS(L+1);
+            ch[L] = 0;
+            DFS(L+1);
         }
     }
     public static void main(String[] args){
         Main T = new Main();
-        Scanner kb = new Scanner(System.in);
-        n=kb.nextInt();
-        Integer[] arr=new Integer[n];
-        for(int i=0; i<n; i++) arr[i]=kb.nextInt();
-        Arrays.sort(arr, Collections.reverseOrder());
-        m=kb.nextInt();
-        T.DFS(0, 0, arr);
-        System.out.println(answer);
+        Scanner sc = new Scanner(System.in);
+        n = sc.nextInt();
+        ch = new int[n+1];
+        T.DFS(1);
     }
 }

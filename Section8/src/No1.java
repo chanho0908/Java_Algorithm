@@ -36,14 +36,13 @@ public class No1 {
     static String answer = "NO";
     static int n, total=0;
     static boolean flag = false;
-
+    static int[] arr;
     /**
      *
      * @param L 노드의 길이
      * @param sum 노드의 합
-     * @param arr 노드의 값
      */
-    public static void DFS(int L, int sum, int[] arr){
+    public static void DFS(int L, int sum){
         if (flag) return;
         if (sum > total/2) return;
         if (L == n){
@@ -52,21 +51,21 @@ public class No1 {
                 flag = true;
             }
         }else {
-            DFS(L+1, sum+arr[L], arr); // 노드의 값 포함
-            DFS(L+1, sum, arr); // 노드의 값 미포함
+            DFS(L+1, sum+arr[L]); // 노드의 값 포함
+            DFS(L+1, sum); // 노드의 값 미포함
         }
     }
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         n = sc.nextInt();
-        int[] arr = new int[n];
+        arr = new int[n];
         for (int i=0; i<n; i++){
             arr[i] = sc.nextInt();
             total += arr[i];
         }
 
-        DFS(0,0,arr);
+        DFS(0,0);
         System.out.println(answer);
     }
 }
