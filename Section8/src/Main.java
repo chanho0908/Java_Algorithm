@@ -1,26 +1,30 @@
 import java.util.*;
 class Main{
-    static int n;
-    static int[] ch;
-    public void DFS(int L){
-        if (L == n+1) {
-            String tmp = "";
-            for (int i=1; i <= n; i++) {
-                if (ch[i] == 1) tmp += i + " ";
+    static int n, total;
+    static String answer = "NO";
+    static int[] arr;
+    static boolean flag = false;
+    public static void DFS(int L, int sum){
+        if (flag) return;
+        if (sum>total/2) return;
+        if (L == n){
+            if ((total - sum) == total/2){
+                answer = "YES";
+                flag = true;
             }
-            if (tmp.length() > 0) System.out.println(tmp);
         }else {
-            ch[L] = 1;
-            DFS(L+1);
-            ch[L] = 0;
-            DFS(L+1);
+            DFS(L+1, sum+arr[L]);
+            DFS(L+1, sum);
+
         }
     }
     public static void main(String[] args){
-        Main T = new Main();
         Scanner sc = new Scanner(System.in);
         n = sc.nextInt();
-        ch = new int[n+1];
-        T.DFS(1);
+        arr = new int[n];
+        for (int i=0; i<n; i++) arr[i] = sc.nextInt();
+        total = Arrays.stream(arr).sum();
+        DFS(0, 0);
+        System.out.println(answer);
     }
 }

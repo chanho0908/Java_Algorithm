@@ -8,10 +8,20 @@ public class Main {
     static int n, m;
     static int[] dis;
     static int[] ch;
-    public static int BFS(int v){
+    public static void BFS(int v){
+        q.offer(v);
+        ch[v] = 1;
 
-
-        return 1;
+        while (!q.isEmpty()){
+            int tmp = q.poll();
+            for (int x : graph.get(tmp)){
+                if (ch[x] == 0){
+                    ch[x] = 1;
+                    dis[x] = dis[tmp] + 1;
+                    q.offer(x);
+                }
+            }
+        }
     }
 
     public static void main(String[] args) throws IOException{
@@ -23,7 +33,7 @@ public class Main {
         dis = new int[n+1];
         graph = new ArrayList<>();
         for (int i=0; i<=n; i++) graph.add(new ArrayList<>());
-        System.out.println(graph.size());
+
         for (int i=0; i < m; i++){
             st = new StringTokenizer(br.readLine());
             int a = Integer.parseInt(st.nextToken());
@@ -31,5 +41,7 @@ public class Main {
             graph.get(a).add(b);
         }
         BFS(1);
+
+        for (int i=2; i <= n; i++) System.out.println(i + ":" + dis[i]);
     }
 }
