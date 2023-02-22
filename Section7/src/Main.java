@@ -1,41 +1,35 @@
-import java.util.LinkedList;
-import java.util.Queue;
-import java.util.Scanner;
+import java.io.BufferedWriter;
+import java.util.*;
+import java.io.*;
 
 public class Main {
-    static int n, e;
-    static int[] dis = {1,-1,5};
+    static ArrayList<ArrayList<Integer>> graph;
+    static Queue<Integer> q = new LinkedList<>();
+    static int n, m;
+    static int[] dis;
     static int[] ch;
-    public static int BFS(int s, int e){
-        Queue<Integer> q = new LinkedList<>();
-        ch = new int[10001];
-        int L = 0;
-        q.offer(s);
-        while (!q.isEmpty()){
-            int len = q.size();
-            for (int i=0; i<len; i++){
-                int x = q.poll();
-                for (int y : dis){
-                    int nv = x + y;
-                    if (nv == e) return L+1;
-                    if (nv > 0 && nv < 10001 && ch[nv] == 0){
-                        ch[nv] = 1;
-                        q.offer(nv);
+    public static int BFS(int v){
 
-                    }
-                }
-            }
-            L++;
-        }
 
         return 1;
     }
 
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        n = sc.nextInt();
-        e = sc.nextInt();
-        System.out.println(BFS(n,e));
-
+    public static void main(String[] args) throws IOException{
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st = new StringTokenizer(br.readLine());
+        n = Integer.parseInt(st.nextToken());
+        m = Integer.parseInt(st.nextToken());
+        ch = new int[n+1];
+        dis = new int[n+1];
+        graph = new ArrayList<>();
+        for (int i=0; i<=n; i++) graph.add(new ArrayList<>());
+        System.out.println(graph.size());
+        for (int i=0; i < m; i++){
+            st = new StringTokenizer(br.readLine());
+            int a = Integer.parseInt(st.nextToken());
+            int b = Integer.parseInt(st.nextToken());
+            graph.get(a).add(b);
+        }
+        BFS(1);
     }
 }
