@@ -1,6 +1,6 @@
 // 중복 순열
 public class PermutationRepetition {
-    static int[] arr, ch, pm;
+    static int[] arr, pm;
     static int r;
     public static void permutation(int L){
         if(L == r){
@@ -17,7 +17,6 @@ public class PermutationRepetition {
     public static void main(String[] args){
         arr = new int[]{1, 2, 3};
         r = 2;
-        ch = new int[r+1];
         pm = new int[r];
         permutation(0);
     }
